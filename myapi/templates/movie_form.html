@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+<form method="post" novalidate>
+  {% csrf_token %}
+
+  {{ form }}
+  <button type="submit">Submit</button>
+</form>
+<br>
+<br>
+
+<table id="customers">
+
+  <tr>
+    <th>Movie Name</th>
+    <th>Starting Date</th>
+    <th>Ending Date</th>
+  </tr>
+{% for item in q1 %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.starting_date }}</td>
+    <td>{{ item.ending_date }}</td>
+  </tr>
+
+ {% endfor %}
+
+</table>
+<br>
+<br>
+
+<table id="customers">
+
+  <tr>
+    <th>Movie Name</th>
+    <th>Starting Date</th>
+    <th>Ending Date</th>
+  </tr>
+
+{% for item in q2 %}
+  <tr>
+    <td>{{ item.name }}</td>
+    <td>{{ item.starting_date }}</td>
+    <td>{{ item.ending_date }}</td>
+  </tr>
+
+ {% endfor %}
+
+</table>
+
+</body>
+</html>
+
